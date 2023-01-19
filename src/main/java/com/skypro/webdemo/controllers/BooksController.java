@@ -55,7 +55,6 @@ public class BooksController {
         return ResponseEntity.ok(bookService.getAllBooks());
     }
 
-
 //    @GetMapping   // GET http://localhost:8080/books
 //    public ResponseEntity<Collection<Book>> getAllBooks() {
 //        return ResponseEntity.ok(bookService.getAllBooks());
