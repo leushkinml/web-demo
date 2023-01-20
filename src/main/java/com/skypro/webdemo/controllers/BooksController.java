@@ -27,11 +27,10 @@ public class BooksController {
 
     @GetMapping("{id}") // GET http://localhost:8080/books/23
     public ResponseEntity<Book> getBookInfo(@PathVariable Long id) {
-        Book book = bookService.findBook(id);
-        if (book == null) {
+        if (id == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(book);
+        return ResponseEntity.ok(bookService.findBook(id));
         // return bookService.findBook(id);
     }
 
@@ -49,7 +48,7 @@ public class BooksController {
         if (namePart != null && !namePart.isBlank()) {
             return ResponseEntity.ok(bookService.findAllByNameContains(namePart));
         }
-        if (id > 0 ) {
+        if (id != null) {
             return ResponseEntity.ok(bookService.findBookById(id));
         }
         return ResponseEntity.ok(bookService.getAllBooks());
