@@ -38,6 +38,8 @@ public class BookService {
     public Book editBook(Book book) {
         return bookRepository.save(book);
     }
+
+
 //    public Book editBook(Book book) {
 //        if (books.containsKey(book.getId())) {
 //            books.put(book.getId(), book);
@@ -49,6 +51,11 @@ public class BookService {
     public void deleteBook(Long lastId) {
         bookRepository.deleteById(lastId);
     }
+
+    public void deleteBookSecondMethod(Book book) {
+        bookRepository.delete(book);
+    }
+
 //    public Book deleteBook(long lastId) {
 //        return books.remove(lastId);
 //    }
